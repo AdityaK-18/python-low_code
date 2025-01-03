@@ -17,23 +17,23 @@
 #### .venv/Scripts/activate OR .\.venv\Scripts\activate
 # 6. Install Pre-Commit
 #### •	Install pre-commit in your virtual environment:
-pip install pre-commit
-7. Verify the Virtual Environment
-•	From your current directory, run dir to confirm that the .venv folder exists. This directory contains the virtual environment.
-•	Change to the .venv directory:
-cd .venv
-•	From this location, run dir to check for the Scripts folder. This folder contains executables for the virtual environment.
-•	Change to the Scripts directory:
-cd Scripts
-•	Inside the Scripts folder, you should find the pre-commit.exe binary file
-8. Install Pre-Commit Hooks
-•	While inside the Scripts directory, install the pre-commit hooks by running:
-pre-commit.exe install
-9. Run Pre-Commit Checks
-•	To run pre-commit on all files in the repository, use:
-pre-commit run --all-files
-The initial run might take longer, but subsequent runs will be faster. After setup, pre-commit will automatically run every time you execute a git commit.
-10. Add Pre-Commit Configuration
-•	Use the below pre-commit-config.yaml in your project root directory before installing pre-commit hooks.
+#### pip install pre-commit
+# 7. Verify the Virtual Environment
+#### •	From your current directory, run dir to confirm that the .venv folder exists. This directory contains the virtual environment.
+#### •	Change to the .venv directory:
+#### cd .venv
+#### •	From this location, run dir to check for the Scripts folder. This folder contains executables for the virtual environment.
+#### •	Change to the Scripts directory:
+#### cd Scripts
+#### •	Inside the Scripts folder, you should find the pre-commit.exe binary file
+# 8. Install Pre-Commit Hooks
+#### •	While inside the Scripts directory, install the pre-commit hooks by running:
+#### pre-commit.exe install
+# 9. Run Pre-Commit Checks
+#### •	To run pre-commit on all files in the repository, use:
+#### pre-commit run --all-files
+#### The initial run might take longer, but subsequent runs will be faster. After setup, pre-commit will automatically run every time you execute a git commit.
+# 10. Add Pre-Commit Configuration
+#### •	Use the below pre-commit-config.yaml in your project root directory before installing pre-commit hooks.
  
-It should also be noted that in the CI process, linting/pre-commit is also added as Job. This ensures that the codes cannot be merged to higher branches through PR incase the users do not perform pre-commit locally.
+#### It should also be noted that in the CI process, linting/pre-commit is also added as Job. This ensures that the codes cannot be merged to higher branches through PR incase the users do not perform pre-commit locally.
