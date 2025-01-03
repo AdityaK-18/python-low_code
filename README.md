@@ -1,6 +1,6 @@
 # python-low_code
 ## Pre-Commit Set up for Developers
-### This document provides step-by-step instructions for installing and configuring pre-commit on a Windows machine. These steps ensure that code is properly linted, formatted etc. before being committed to a remote branch.
+### These steps ensure that code is properly linted, formatted, etc., before committing to a remote branch.
 # 1. Open Command Prompt
 ### •	Start by opening the Command Prompt (CMD) on your VDI machine
 # 2. Install Python
@@ -32,11 +32,8 @@
 # 9. Run Pre-Commit Checks
 #### •	To run pre-commit on all files in the repository, use:
 #### pre-commit run --all-files
-# 10 Run streamlit 
-#### streamlit run Week_1_Learning_Streamlit/day_1_intro_to_streamlit.py
-
 #### The initial run might take longer, but subsequent runs will be faster. After setup, pre-commit will automatically run every time you execute a git commit.
 # 10. Add Pre-Commit Configuration
 #### •	Use the below pre-commit-config.yaml in your project root directory before installing pre-commit hooks.
- 
-#### It should also be noted that in the CI process, linting/pre-commit is also added as Job. This ensures that the codes cannot be merged to higher branches through PR incase the users do not perform pre-commit locally.
+# 11 Run streamlit 
+#### streamlit run Week_1_Learning_Streamlit/day_1_intro_to_streamlit.py
