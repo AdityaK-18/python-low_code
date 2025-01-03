@@ -10,4 +10,4 @@ st.subheader("Your first Streamlit app")
 st.text("Streamlit makes it easy to create interactive web apps with Python.")
 
 # Display a success message
-st.success("Hello World! You've successfully created your first Streamlit app.")
+st.success("Hello World! You have successfully created your first Streamlit app.")
