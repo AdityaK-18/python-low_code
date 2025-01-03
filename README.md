@@ -32,6 +32,9 @@
 # 9. Run Pre-Commit Checks
 #### •	To run pre-commit on all files in the repository, use:
 #### pre-commit run --all-files
+# 10 Run streamlit 
+#### streamlit run Week_1_Learning_Streamlit/day_1_intro_to_streamlit.py
+
 #### The initial run might take longer, but subsequent runs will be faster. After setup, pre-commit will automatically run every time you execute a git commit.
 # 10. Add Pre-Commit Configuration
 #### •	Use the below pre-commit-config.yaml in your project root directory before installing pre-commit hooks.
