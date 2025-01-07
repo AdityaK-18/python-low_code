@@ -10,20 +10,17 @@ import pandas as pd
 #     .main {
 #         background-color: #f4f8fb; /* Light grey-blue */
 #     }
-
 #     /* Title styling */
 #     h1 {
 #         color: #ff6347; /* Tomato red */
 #         text-align: center;
 #         font-family: 'Arial', sans-serif;
 #     }
-
 #     /* Subtitle styling */
 #     h2 {
 #         color: #4caf50; /* Green */
 #         text-align: center;
 #     }
-
 #     /* Button styling */
 #     .stButton>button {
 #         background-color: #4caf50; /* Green button */
@@ -34,7 +31,6 @@ import pandas as pd
 #     .stButton>button:hover {
 #         background-color: #45a049; /* Darker green on hover */
 #     }
-
 #     /* Input box styling */
 #     .stTextInput>div>input {
 #         border: 2px solid #4caf50; /* Green border */
