@@ -4,11 +4,12 @@ pandas
 # scikit-learn==1.2.0
 # lightgbm==3.3.2
 matplotlib
-# shap==0.41.0
-# seaborn==0.12.2
+shap
+seaborn
 # jinja2==3.1.2
 ipython
 # psutil== 5.9.0
 # python-dotenv==1.0.0
 streamlit
 matplotlib --only-binary :all:
+plotly
