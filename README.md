@@ -38,14 +38,14 @@
 # 11 Run streamlit 
 #### streamlit run Week_1_Learning_Streamlit/day_1_intro_to_streamlit.py
 
-# Day 4 Visulization
+# Day 4 Visualization
 # Shopping Trends Visualizations with SQLite
 
 This project allows you to upload a shopping dataset in CSV format and visualize trends using Streamlit, SQLite, and various visualization libraries such as Matplotlib, Seaborn, and Plotly.
 
 ## Features
 1. **File Upload**:
-   - Upload your shopping data in CSV format.
+   - Upload your shopping data in CSV format (**shopping_trends.csv**).
    - Automatically normalize column names (spaces replaced with underscores and converted to lowercase).
    - Ensures proper data validation before processing.
 
@@ -54,7 +54,7 @@ This project allows you to upload a shopping dataset in CSV format and visualize
    - Provides clear error messages if any required column is missing.
 
 3. **SQLite Database Integration**:
-   - Automatically creates a SQLite database (`shopping_trends.db`) and a table (`shopping_data`).
+   - Automatically creates an SQLite database (`shopping_trends.db`) and a table (`shopping_data`).
    - Inserts the uploaded dataset into the database for querying and analysis.
 
 4. **Filters**:
@@ -126,7 +126,7 @@ Your dataset should contain the following columns:
 
 ## Visualizations
 1. **Age Distribution**:
-   - Bar chart showing the count of customers across different age groups.
+   - A bar chart showing the number of customers across different age groups.
 2. **Purchase Amount vs. Age**:
    - Scatter plot illustrating purchase amounts against customer age, categorized by product type.
 3. **Category Breakdown**:
@@ -137,7 +137,7 @@ Your dataset should contain the following columns:
 ## Notes on Data Upload and Validation
 - The file upload process ensures that only valid CSV files with the required data structure are accepted.
 - If any required columns are missing, the application stops execution and displays an error.
-- After a successful upload, the application displays a preview of the dataset and applies all filters for further analysis.
+- After a successful upload, the application displays a dataset preview and applies all filters for further analysis.
 
 ## Contributing
 Feel free to contribute by creating a pull request or opening an issue for any bugs or feature requests.
