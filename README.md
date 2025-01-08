@@ -128,7 +128,7 @@ pip install streamlit pandas matplotlib seaborn plotly
 2. Ensure the required libraries are installed.
 3. Run the Streamlit application:
    ```bash
-   streamlit run app.py
+   streamlit run day4_Visulization.py
    ```
 4. Upload your CSV file and interact with the visualizations.
 
