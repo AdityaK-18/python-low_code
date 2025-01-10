@@ -6,7 +6,7 @@
     "codespaces": {
       "openFiles": [
         "README.md",
-        "Week_1_Learning_Streamlit/day4_Visulization.py"
+        "Week_1_Learning_Streamlit/day5_Layout_&_Organization.py"
       ]
     },
     "vscode": {
@@ -19,7 +19,7 @@
   },
   "updateContentCommand": "[ -f packages.txt ] && sudo apt update && sudo apt upgrade -y && sudo xargs apt install -y <packages.txt; [ -f requirements.txt ] && pip3 install --user -r requirements.txt; pip3 install --user streamlit; echo '✅ Packages installed and Requirements met'",
   "postAttachCommand": {
-    "server": "streamlit run Week_1_Learning_Streamlit/day4_Visulization.py --server.enableCORS false --server.enableXsrfProtection false"
+    "server": "streamlit run Week_1_Learning_Streamlit/day5_Layout_&_Organization.py --server.enableCORS false --server.enableXsrfProtection false"
   },
   "portsAttributes": {
     "8501": {
