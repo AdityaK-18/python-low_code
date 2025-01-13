@@ -2,15 +2,13 @@ import streamlit as st
 import sqlite3
 import pandas as pd
 import matplotlib.pyplot as plt
-import zipfile
-import io
 
 # Database setup
 def init_db():
     conn = sqlite3.connect('conference.db')
     c = conn.cursor()
     c.execute('''CREATE TABLE IF NOT EXISTS events (
-                    event_id INTEGER,
+                    event_id INTEGER CHECK(event_id >= 0),
                     event_name TEXT,
                     location TEXT,
                     date_time TEXT,
@@ -23,6 +21,8 @@ def init_db():
 
 # Insert data into the database
 def insert_data(event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number):
+    if event_id < 0:
+        raise ValueError("Event ID cannot be negative.")
     conn = sqlite3.connect('conference.db')
     c = conn.cursor()
     c.execute('''INSERT INTO events (event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number) 
@@ -40,36 +40,17 @@ def fetch_data():
     conn.close()
     return rows
 
-# Load Kaggle dataset into the database with error handling
+# Load Kaggle dataset into the database with error handling and chunk loading
 def load_kaggle_dataset(file):
     try:
-        df = pd.read_csv(file)
+        st.write("Uploading and processing the file in chunks...")
         conn = sqlite3.connect('conference.db')
-        df.to_sql('events', conn, if_exists='replace', index=False)
+        for chunk in pd.read_csv(file, chunksize=10000):
+            chunk.to_sql('events', conn, if_exists='append', index=False)
         conn.close()
         st.success("Kaggle dataset uploaded and saved to the database successfully!")
     except Exception as e:
         st.error(f"An error occurred while uploading the dataset: {e}")
-
-# Load and extract ZIP file
-def load_zip_file(zip_file):
-    try:
-        with zipfile.ZipFile(zip_file, 'r') as z:
-            file_names = z.namelist()
-            csv_files = [f for f in file_names if f.endswith('.csv')]
-            if not csv_files:
-                st.error("No CSV files found in the ZIP archive.")
-                return
-
-            for csv_file in csv_files:
-                with z.open(csv_file) as f:
-                    df = pd.read_csv(f)
-                    conn = sqlite3.connect('conference.db')
-                    df.to_sql('events', conn, if_exists='replace', index=False)
-                    conn.close()
-                    st.success(f"CSV file '{csv_file}' from ZIP uploaded and saved to the database successfully!")
-    except Exception as e:
-        st.error(f"An error occurred while processing the ZIP file: {e}")
 
 # Fetch data for display
 def fetch_data_from_db():
@@ -82,12 +63,12 @@ def fetch_data_from_db():
 init_db()
 st.title("College Conference Event Management App")
 
-menu = ["Add Event", "View Events", "Upload Kaggle Dataset", "Upload ZIP File", "Visualize Data"]
+menu = ["Add Event", "View Events", "Upload Kaggle Dataset", "Visualize Data"]
 choice = st.sidebar.selectbox("Menu", menu)
 
 if choice == "Add Event":
     st.subheader("Add Event Details")
-    event_id = st.number_input("Event ID", step=1)
+    event_id = st.number_input("Event ID", step=1, min_value=0)
     event_name = st.text_input("Event Name")
     location = st.text_input("Location")
     date_time = st.text_input("Date and Time (YYYY-MM-DD HH:MM:SS)")
@@ -96,9 +77,12 @@ if choice == "Add Event":
     attendee_phone_number = st.text_input("Attendee Phone Number")
 
     if st.button("Add Event"):
-        if event_id and event_name and location and date_time and attendee_name and attendee_email and attendee_phone_number:
-            insert_data(event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number)
-            st.success(f"Event '{event_name}' with attendee '{attendee_name}' added successfully!")
+        if event_name and location and date_time and attendee_name and attendee_email and attendee_phone_number:
+            try:
+                insert_data(event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number)
+                st.success(f"Event '{event_name}' with attendee '{attendee_name}' added successfully!")
+            except ValueError as ve:
+                st.error(str(ve))
         else:
             st.error("Please fill all fields.")
 
@@ -126,20 +110,11 @@ elif choice == "View Events":
 
 elif choice == "Upload Kaggle Dataset":
     st.subheader("Upload Kaggle Dataset")
+    st.write("**Expected Columns:** `event_id`, `event_name`, `location`, `date_time`, `attendee_name`, `attendee_email`, `attendee_phone_number`.")
     uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
     
     if uploaded_file:
         load_kaggle_dataset(uploaded_file)
-        df = fetch_data_from_db()
-        st.write("Dataset Preview:")
-        st.dataframe(df.head())
-
-elif choice == "Upload ZIP File":
-    st.subheader("Upload ZIP File")
-    uploaded_zip = st.file_uploader("Upload a ZIP file containing CSV files", type="zip")
-    
-    if uploaded_zip:
-        load_zip_file(uploaded_zip)
         df = fetch_data_from_db()
         st.write("Dataset Preview:")
         st.dataframe(df.head())
