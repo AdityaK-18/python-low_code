@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-from fastapi.responses import FileResponse
 
 # Create an instance of the FastAPI application
 app = FastAPI()
@@ -17,10 +16,10 @@ def read_root():
 def create_item(name: str):
     """
     Endpoint to create an item. Accepts a query parameter 'name'.
-    
+
     Args:
         name (str): The name of the item to create.
-        
+
     Returns:
         dict: A message confirming the creation of the item.
     """

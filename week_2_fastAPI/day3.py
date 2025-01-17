@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import Optional
 
 app = FastAPI()
 
@@ -35,10 +35,10 @@ def favicon():
 def add_product(product: Product):
     """
     Add a new product to the in-memory storage.
-    
+
     Args:
         product (Product): The product data provided in the request body.
-    
+
     Returns:
         dict: A message confirming the addition of the product.
     """
@@ -51,10 +51,10 @@ def add_product(product: Product):
 def get_all_products(category: Optional[str] = None):
     """
     Retrieve all stored products or filter by category.
-    
+
     Args:
         category (str, optional): The category to filter products by.
-        
+
     Returns:
         list: A list of all products or filtered products.
     """
@@ -68,10 +68,10 @@ def get_all_products(category: Optional[str] = None):
 def get_product_by_id(product_id: int):
     """
     Retrieve a product by its ID.
-    
+
     Args:
         product_id (int): The ID of the product.
-        
+
     Returns:
         dict: Product details if found, or an error message if not found.
     """

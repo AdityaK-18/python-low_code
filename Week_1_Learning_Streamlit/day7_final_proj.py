@@ -25,8 +25,8 @@ def insert_data(event_id, event_name, location, date_time, attendee_name, attend
         raise ValueError("Event ID cannot be negative.")
     conn = sqlite3.connect('conference.db')
     c = conn.cursor()
-    c.execute('''INSERT INTO events (event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?)''', 
+    c.execute('''INSERT INTO events (event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number)
+                 VALUES (?, ?, ?, ?, ?, ?, ?)''',
               (event_id, event_name, location, date_time, attendee_name, attendee_email, attendee_phone_number))
     conn.commit()
     conn.close()
@@ -112,7 +112,7 @@ elif choice == "Upload Kaggle Dataset":
     st.subheader("Upload Kaggle Dataset")
     st.write("**Expected Columns:** `event_id`, `event_name`, `location`, `date_time`, `attendee_name`, `attendee_email`, `attendee_phone_number`.")
     uploaded_file = st.file_uploader("Upload a CSV file", type="csv")
-    
+
     if uploaded_file:
         load_kaggle_dataset(uploaded_file)
         df = fetch_data_from_db()

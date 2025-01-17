@@ -16,10 +16,10 @@ async def read_root():
 async def simulate_task(duration: int = 2):
     """
     Simulates a time-consuming task like a database query or API call.
-    
+
     Args:
         duration (int): The duration (in seconds) for the task simulation. Default is 2 seconds.
-        
+
     Returns:
         dict: A message confirming task completion with the duration.
     """
@@ -31,7 +31,7 @@ async def simulate_task(duration: int = 2):
 async def handle_multiple_tasks():
     """
     Simulates handling multiple tasks concurrently using asyncio.gather().
-    
+
     Returns:
         dict: A message confirming the completion of all tasks.
     """

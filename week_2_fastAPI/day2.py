@@ -16,10 +16,10 @@ def read_root():
 def get_product_by_id(product_id: int):
     """
     Retrieve product details by its ID.
-    
+
     Args:
         product_id (int): The ID of the product.
-        
+
     Returns:
         dict: Product details if found, or an error message.
     """
@@ -37,10 +37,10 @@ def get_product_by_id(product_id: int):
 def get_products_by_category(category: Optional[str] = None):
     """
     Retrieve products filtered by category.
-    
+
     Args:
         category (str, optional): The category to filter products by.
-        
+
     Returns:
         list: Filtered list of products or all products.
     """

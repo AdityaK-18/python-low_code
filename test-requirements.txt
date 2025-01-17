@@ -13,3 +13,5 @@ ipython
 streamlit
 matplotlib --only-binary :all:
 plotly
+fastapi
+uvicorn
