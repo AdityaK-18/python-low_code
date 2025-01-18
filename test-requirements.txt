@@ -15,3 +15,6 @@ matplotlib --only-binary :all:
 plotly
 fastapi
 uvicorn
+databases
+pydantic
+sqlalchemy
