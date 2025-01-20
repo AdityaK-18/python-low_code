@@ -18,3 +18,4 @@ uvicorn
 databases
 pydantic
 sqlalchemy
+streamlit-cookies-manager
