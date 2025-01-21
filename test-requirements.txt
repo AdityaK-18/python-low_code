@@ -19,3 +19,7 @@ databases
 pydantic
 sqlalchemy
 streamlit-cookies-manager
+fastapi[all]
+python-jose
+passlib
+bcrypt==4.0.1

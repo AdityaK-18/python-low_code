@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from streamlit_cookies_manager import EncryptedCookieManager
 
 # Initialize cookies manager
-cookies = EncryptedCookieManager(password="your-secure-password")  # Replace with your secure password
+cookies = EncryptedCookieManager(password="TigerAnalytics")  # Replace with your secure password
 
 if not cookies.ready():
     st.stop()
