@@ -23,3 +23,5 @@ fastapi[all]
 python-jose
 passlib
 bcrypt==4.0.1
+prometheus_fastapi_instrumentator
+aiocache
