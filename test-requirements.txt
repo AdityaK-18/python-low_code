@@ -13,3 +13,15 @@ ipython
 streamlit
 matplotlib --only-binary :all:
 plotly
+fastapi
+uvicorn
+databases
+pydantic
+sqlalchemy
+streamlit-cookies-manager
+fastapi[all]
+python-jose
+passlib
+bcrypt==4.0.1
+prometheus_fastapi_instrumentator
+aiocache
