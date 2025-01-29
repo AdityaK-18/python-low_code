@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: fastapi-backend
+    ports:
+      - "8000:8000"  # Map FastAPI port to host
+    networks:
+      - fullstack-network
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: streamlit-frontend
+    ports:
+      - "8501:8501"  # Map Streamlit port to host
+    networks:
+      - fullstack-network
+    environment:
+      - FASTAPI_URL=http://backend:8000  # Connect to FastAPI container
+
+networks:
+  fullstack-network:
+    driver: bridge
